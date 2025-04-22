@@ -6,29 +6,55 @@
         xmlns:local="clr-namespace:ToDoListWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <local:DoneToTextDecorationConverter x:Key="DoneToTextDecorationConverter"/>
+    </Window.Resources>
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin=" 0 0 0 10">
-            <TextBox x:Name="TaskInputTB" Width="250" Height="30" Margin=" 0 0 10 0"/>
-            <Button x:Name="AddTaskBtn" Content="Добавить" Width="100" Click="AddTaskBtn_Click"/>
+        <StackPanel Orientation="Horizontal"
+                    Margin="0 0 0 10">
+            <TextBox x:Name="TaskInputTb"
+                     Width="250"
+                     Height="30"
+                     Margin="0 0 10 0"/>
+            <Button x:Name="AddTaskBtn"
+                    Content="Добавить"
+                    Width="100"
+                    Click="AddTaskBtn_Click"/>
         </StackPanel>
-        <ListBox x:Name="TaskListLb" Grid.Row="1">
+
+        <ListBox x:Name="TaskListLb"
+                 Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <DockPanel LastChildFill="True" Margin="0 2">
-                        <CheckBox IsChecked="{Binding}" Margin="5" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
-                        <TextBlock Text="{Binding}" VerticalAlignment="Center" TextDecorations="{Binding}"/>
-                        <Button Content="X" DockPanel.Dock="Right" Margin="5" x:Name="DeleteTaskBtn" Click="DeleteTaskBtn_Click"/>
+                    <DockPanel LastChildFill="True"
+                               Margin="0 2">
+                        <CheckBox IsChecked="{Binding IsDone}"
+                                  Margin="5"
+                                  Checked="CheckBox_Changed"
+                                  Unchecked="CheckBox_Changed"/>
+                        <TextBlock Text="{Binding Title}"
+                                   VerticalAlignment="Center"
+                                   TextDecorations="{Binding IsDone, Converter={StaticResource DoneToTextDecorationConverter}}"/>
+                        <Button Content="✕"
+                                DockPanel.Dock="Right"
+                                Margin="5"
+                                x:Name="DeleteTaskBtn"
+                                Click="DeleteTaskBtn_Click"/>
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            
         </ListBox>
-        <TextBlock x:Name="ConterText" Grid.Row="2" HorizontalAlignment="Right" FontWeight="Bold" Margin="0 10 0 0"/>
-
+        <TextBlock x:Name="CounterTextTbl" 
+                   Grid.Row="2" 
+                   HorizontalAlignment="Right" 
+                   FontWeight="Bold" 
+                   Margin="0 10 0 0"/>
     </Grid>
 </Window>
