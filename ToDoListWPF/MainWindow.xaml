@@ -61,8 +61,21 @@
                     <ComboBoxItem Content="Дом" Background="Lime"/>
 
                 </ComboBox>
+                <ComboBox x:Name="SortComboBox"
+                          Width="200"
+                          Height="30"
+                          Margin="0 0 10 0"
+                          SelectionChanged="SortComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Без сортировки" IsSelected="True"/>
+                    <ComboBoxItem Content="По дате (Возрастание)"/>
+                    <ComboBoxItem Content="По дате (Убывание)"/>
+                    <ComboBoxItem Content="По статусу"/>
+                    <ComboBoxItem Content="По категории"/>
+                    
+
+                </ComboBox>
             </StackPanel>
-            <StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <MediaElement x:Name="gif" 
               MediaEnded="gif_MediaEnded" 
               UnloadedBehavior="Manual" 
@@ -71,6 +84,23 @@
               Stretch="Fill"
               Grid.Row="2"
               Width="200"/>
+                <MediaElement x:Name="gif2" 
+                    MediaEnded="gif2_MediaEnded" 
+                    UnloadedBehavior="Manual" 
+                    Source="C:\Users\User\Downloads\Hood2.gif"
+                    LoadedBehavior="Play"
+                    Stretch="Fill"
+                    Grid.Row="2"
+                    Width="100"/>
+                <MediaElement x:Name="gif3" 
+                    MediaEnded="gif3_MediaEnded" 
+                    UnloadedBehavior="Manual" 
+                    Source="C:\Users\User\Downloads\dark.gif"
+                    LoadedBehavior="Play"
+                    Stretch="Fill"
+                    Grid.Row="2"
+                    Width="100"/>
+
             </StackPanel>
         </StackPanel>
         

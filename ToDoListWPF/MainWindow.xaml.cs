@@ -105,6 +105,28 @@ namespace ToDoListWPF
             {
                 finalFiltered = FilteredByTitle.Where(task => task.Category == SelectedCategory).ToList();
             }
+
+            //Сортировка
+            var selectedSort = (SortComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            switch (selectedSort)
+            {
+                case "По дате (Возрастание)":
+                    finalFiltered = finalFiltered.OrderBy(task => task.DueDate).ToList();
+                    break;
+                case "По дате (Убывание)":
+                    finalFiltered = finalFiltered.OrderByDescending(task => task.DueDate).ToList();
+                    break;
+                case "По статусу":
+                    finalFiltered = finalFiltered.OrderBy(task => task.IsDone).ToList();
+                    break;
+                case "По категории":
+                    finalFiltered = finalFiltered.OrderBy(task => task.Category).ToList();
+                    break;
+                case "Без сортировки":
+                default:
+                    break;
+
+            }
             FilteredTasks.Clear();
             foreach (var task in finalFiltered)
             {
@@ -128,6 +150,23 @@ namespace ToDoListWPF
             }
             UpdateCounter();
             ApplyFilter();
+        }
+
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplyFilter();
+        }
+
+        private void gif2_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            gif2.Position = new TimeSpan(0, 0, 1);
+            gif2.Play();
+        }
+
+        private void gif3_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            gif.Position = new TimeSpan(0, 0, 1);
+            gif.Play();
         }
     }
     public class TodoItem

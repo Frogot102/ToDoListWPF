@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListWPF", "ToDoListWPF\ToDoListWPF.csproj", "{9B037558-D33B-4C94-ACA0-D6B49EBD7D71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
+	ProjectSection(SolutionItems) = preProject
+		ToDoListWPF\dark.gif = ToDoListWPF\dark.gif
+		ToDoListWPF\fish-spin-sha.gif = ToDoListWPF\fish-spin-sha.gif
+		ToDoListWPF\Hood2.gif = ToDoListWPF\Hood2.gif
+		ToDoListWPF\i.png = ToDoListWPF\i.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
